@@ -1,0 +1,17 @@
+rvm: 1.9.3
+env:
+  - PUPPET_VERSION=3.7.3
+script:
+  - bundle exec rake lint
+  - bundle exec rake validate
+  - bundle exec rake spec
+before_deploy:
+  - bundle exec rake clean
+  - bundle exec rake set_travis_version
+deploy:
+  skip_cleanup: true
+  provider: puppetforge
+  user:
+    secure: "ezoQV1dGWGJX+GoCGeecbYjCesVI9VnqfKsLMGotIaO55EdNy6agML1FwzRow7yiFcpqXs1DpoJAkpvg9ivNlLKREupjt/5A9Qcy2A5iNhbNR20s3iBFzdVktutmh7YWTVKNApJLZOXraVms4fCgl1lME05cHcL0suptHyUpRqc="
+  password:
+    secure: "MzpR6XkLzcLx8Uca+8wt2Q8kxSgabcWkvrQV47oqL2zzEl893tm2MeYvj/kLZMihhho5k/pmVKqkJ5irj8oog8dE71Q9ViomXV/nD2E6z3ccYGdLcm8LrCnOCBAc1KBACngFyKAKcZ1oHQR8bqaGCNDsJD/BDQwWvF3MGTSWz1k="
