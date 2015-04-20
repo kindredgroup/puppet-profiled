@@ -1,30 +1,26 @@
-# unibet-bash
+# unibet-profiled
 
-[![Build Status](https://secure.travis-ci.org/unibet/puppet-bash.png)](http://travis-ci.org/unibet/puppet-bash)
+[![Build Status](https://secure.travis-ci.org/unibet/puppet-profiled.png)](http://travis-ci.org/unibet/puppet-profiled)
 
 ## Overview
 
 ## Description
 
-This module handles bash.
+This module handles /etc/profile.d files
 
 ## Usage
 
-### bash
+### profiled
 
 ```
-class { 'bash':
-  ensure   => present,
-  packages => [array]
-}
+include ::profiled
 ```
 
-### bash::timeout
+### profiled::script
 
-Configure bash timeout
+Configure custom profile.d script
 ```
-bash::timeout { $::id:
-  timeout   => '60',
-  user_home => "/home/$::id"
+profiled::script { 'date':
+  content => 'echo $(date)'
 }
 ```
