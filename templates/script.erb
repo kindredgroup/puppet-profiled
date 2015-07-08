@@ -1,4 +1,4 @@
-#!<%= @shell %>
+<%= %Q(#!#{@shell}\n) if @shell != 'absent' -%>
 # File managed by Puppet
 
 <%= @content %>
